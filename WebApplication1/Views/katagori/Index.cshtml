@@ -1,0 +1,49 @@
+﻿@using entity.conti
+@using X.PagedList
+@using X.PagedList.Mvc.Core
+@model PagedList<entity.conti.katagori>
+
+@{
+    Layout = null;
+}
+<a href="~/lib/bootstrap/dist/css/bootstrap.css.map">~/lib/bootstrap/dist/css/bootstrap.css.map</a>
+<a href="~/lib/bootstrap/dist/css/bootstrap.min.css.map">~/lib/bootstrap/dist/css/bootstrap.min.css.map</a>
+<a href="~/lib/bootstrap/dist/css/bootstrap.rtl.css.map">~/lib/bootstrap/dist/css/bootstrap.rtl.css.map</a>
+<a href="~/lib/bootstrap/dist/css/bootstrap.rtl.min.css.map">~/lib/bootstrap/dist/css/bootstrap.rtl.min.css.map</a>
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="~/lib/bootstrap/dist/css/bootstrap.rtl.min.css" rel="stylesheet" />
+<link href="~/lib/bootstrap/dist/css/bootstrap.rtl.css" rel="stylesheet" />
+<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+
+
+
+
+<table  class="table table-bordered">
+
+
+
+<tr>
+    <th>ID</th>
+    <th>KATAGROİ ADI</th>
+    <th>DURUM</th>
+    <th>DETAYLAR</th>
+     <th>SİL</th>
+      </tr>
+    @foreach(var item in Model)
+    {<tr>
+        <td ><a>@item.katagoriID</a> </td>
+        <td>@item.katagoriName </td>
+        <td>@item.katagoristatus </td>
+        <td><a href="#" class="btn btn-warning"> detaylar</a>  </td>
+     <td><a href="/katagori/katagorisil/@item.katagoriID/"id="DeleteBtn" onclick="return confirm('silmek istediğine eminmisin')" class="btn btn-danger"> sil</a>  </td>
+        </tr>
+
+    }
+   
+</table>
+<a href="#" class="btn btn-primary">ekle</a>
+  <br />
+    <br />
+
+
+@Html.PagedListPager((IPagedList)Model,page=>Url.Action("Index",new {page}))

@@ -1,0 +1,32 @@
+﻿@model IEnumerable<entity.conti.comment>
+
+<div class="comment-top">  <!--bunların oluşturmalmasının sebebi t blog içerik sayfasında 1 den fazla
+
+		entity çağırmaya çalışmamız   ve  bu ViewComponents klosörunteki  CommentList2 veri almaktDIR
+-->
+	<h4>Yorumlar</h4>
+
+	@foreach (var item in Model)
+	{
+	<div class="media">
+		
+			
+
+
+		<img src="~/web/images/t1.jpg" alt="" class="img-fluid" />
+		<div class="media-body">
+			<h5 class="mt-0">@item.commentuserName</h5>
+			<p>
+				@item.commentcontent
+			</p>
+			
+			
+		</div>
+			
+		
+		
+	</div>
+
+		}
+	
+</div>

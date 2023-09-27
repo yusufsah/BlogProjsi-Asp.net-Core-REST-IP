@@ -1,0 +1,44 @@
+﻿@model entity.conti.blog
+@{
+    ViewData["Title"] = "editblog";
+    Layout = "~/Views/Shared/writerpanel.cshtml";
+}
+
+<h1>blog dzüenleme sayfası</h1>
+@using (Html.BeginForm("editblog", "blogController1", FormMethod.Post))
+{
+    <br />
+    @Html.Label("blog ID")
+    @Html.TextBoxFor(x=>x.blogID,new {@class="form-control"})
+    <br />
+    @Html.Label("blog başlık")
+    @Html.TextBoxFor(x=>x.title,new {@class="form-control"})
+    <br />
+    @Html.Label("blog görseli")
+    @Html.TextBoxFor(x=>x.blogbüyükresim,new {@class="form-control"})
+    <br />
+    @Html.Label("katagori")
+     @Html.DropDownListFor(x=>x.katagoriID,(List<SelectListItem>)ViewBag.i,new{@class="form-control"})
+    <br />
+    @Html.Label("küçük resim")
+    @Html.TextBoxFor(x=>x.blogküçükresim,new {@class="form-control"})
+
+    <br />
+    @Html.Label("içerik")
+    @Html.TextAreaFor(x=>x.blogcontent,10,10,new {@class="form-control"})
+    <br />
+
+    <button class="btn btn-info"> güncelle </button>
+
+
+
+
+
+
+
+
+
+
+
+}
+

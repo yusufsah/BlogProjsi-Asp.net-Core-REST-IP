@@ -1,0 +1,38 @@
+﻿@using entity.conti
+@model List<blog>
+@{
+    ViewData["Title"] = "Bloglistbywriterpanel";
+    Layout = "~/Views/Shared/writerpanel.cshtml";
+}
+
+<h1>yazarın blogları </h1>
+
+<table class="table table-bordered">
+<tr>
+
+        <th>#</th>
+         <th>blog başlığı</th>
+        <th>oluşturma tarihi</th>
+        <th>katagori</th>
+       
+        <th>sil </th>
+        <th>düzenle </th>
+
+</tr>
+@foreach (var item in Model)
+    {
+       <tr>
+
+           <td>@item.blogID </td>
+            <td>@item.title</td>
+            <td> @item.creatdate</td>
+            <td>@item.katagorı.katagoriName</td>
+            <td><a href="/blogController1/deleteblog/@item.blogID" class="btn btn-danger">sil</a></td>
+            <td><a href="/blogController1/editblog/@item.blogID" class="btn btn-warning">düzenle</a></td>
+          
+       </tr>
+        
+    }
+
+</table>
+<a href="#" class="btn btn-primary"> yeni blog oluştur </a>

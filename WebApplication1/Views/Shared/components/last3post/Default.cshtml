@@ -1,0 +1,37 @@
+﻿@using entity.conti
+@model List<blog>
+
+
+
+<div class="tech-btm">
+	@foreach (var item in Model)
+		{
+			
+	<h3>SON POSTLAR</h3>
+	<div class="blog-grids row mb-3">
+		<div class="col-md-5 blog-grid-left">
+				<a href="/blogController1/BlogReadall/@item.blogID">
+				<img src="@item.blogbüyükresim" class="card-img-top img-fluid" alt="">
+			</a>
+		</div>
+	
+		
+		<div class="col-md-7 blog-grid-right">
+
+			<h5>
+					<a href="single.html">@item.blogcontent.Substring(0,10) </a>
+			</h5>
+			<div class="sub-meta">
+				<span>
+						<i class="far fa-clock"></i>@(((DateTime)item.creatdate).ToString("dd-MMM-yyyy"))
+						
+				</span>
+			</div>
+		</div>
+		
+
+	</div>
+
+
+		}
+</div>

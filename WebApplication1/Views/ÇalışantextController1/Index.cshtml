@@ -1,0 +1,28 @@
+﻿@using WebApplication1.Controllers
+@model List<Class1>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/admin.cshtml";
+}
+
+<h1>Index</h1>
+<table></table>
+<tr>
+    <th>#</th>
+    <th>adı soyadı</th>
+    
+</tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <th>#</th>
+        <th>@item</th>
+        <th>@item.Name</th>
+
+
+    </tr>
+
+}
+</table>
+

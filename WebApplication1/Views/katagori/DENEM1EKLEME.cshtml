@@ -1,0 +1,30 @@
+﻿@model entity.conti.katagori
+@{
+    ViewData["Title"] = "DENEM1EKLEME";
+    Layout = "~/Views/Shared/writerpanel.cshtml";
+}
+
+<h1>katagori</h1>
+<br />
+@using (Html.BeginForm("blogADDwriterpanel", "blogController1", FormMethod.Post))
+{
+    @Html.Label("blog başlığı")
+    @Html.TextBoxFor(x => x.katagoriID, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.katagoriID)
+    <br />
+
+    @Html.Label("blog resmi")
+    @Html.TextBoxFor(x => x.katagoriName, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.katagoriName)
+    <br />
+
+    @Html.Label("blog küçük resim")
+    @Html.TextBoxFor(x => x.katagoriDescription, new { @class = "form-control" })
+    <br />
+
+    @Html.Label("katagori ıd giriniz")
+    @Html.DropDownListFor(x => x.katagoristatus, (IEnumerable<SelectListItem>)ViewBag.i, new { @class = "form-control" })
+    <br />
+
+    <button class="btn btn-info">Ekle</button>
+}

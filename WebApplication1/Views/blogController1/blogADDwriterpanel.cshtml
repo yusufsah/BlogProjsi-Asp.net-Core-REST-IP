@@ -1,0 +1,39 @@
+﻿@model entity.conti.blog
+@{
+    ViewData["Title"] = "blogADDwriterpanel";
+    Layout = "~/Views/Shared/writerpanel.cshtml";
+}
+
+<h1>blog ekleme paneli</h1>
+<br />
+@using (Html.BeginForm("blogADDwriterpanel", "blogController1", FormMethod.Post)) 
+{
+    @Html.Label("blog başlığı")
+    @Html.TextBoxFor(x=>x.title,new {@class="form-control"})
+    @Html.ValidationMessageFor(x=>x.title)
+    <br />
+
+    
+
+    @Html.Label("blog resmi")
+    @Html.TextBoxFor(x=>x.blogbüyükresim,new {@class="form-control"})
+    @Html.ValidationMessageFor(x=>x.blogbüyükresim)
+    <br />
+
+    @Html.Label("blog küçük resim")
+    @Html.TextBoxFor(x=>x.blogküçükresim,new {@class="form-control"})
+
+    <br />
+
+    @Html.Label("katagori ıd giriniz")
+    @Html.DropDownListFor(x=>x.katagoriID,(List<SelectListItem>)ViewBag.i,new{@class="form-control"})
+    <br />
+    <br />
+
+    @Html.Label("içerik")
+    @Html.TextAreaFor(x=>x.katagoriID,10,10,new {@class="form-control"})
+    @Html.ValidationMessageFor(x=>x.blogcontent)
+    <br />
+
+    <button class="btn btn-info"> Ekle</button>
+}
